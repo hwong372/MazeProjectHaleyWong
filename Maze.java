@@ -29,22 +29,13 @@ public class Maze extends Application {
    //variables for the position of the player's square in the array 
    int rowIndex = 0; 
    int colIndex; 
-   
-   VBox message = new VBox(); 
-   
-   Label label = new Label(); 
 
    public void start(Stage stage) {
    
       try {
       
          rootFlowPane.getChildren().add(canvas); 
-         
-         label.setBackground(new Background(new BackgroundFill(Color.CYAN, CornerRadii.EMPTY, Insets.EMPTY)));
-         label.setText("hey"); 
-         message.getChildren().add(label); 
-         rootFlowPane.getChildren().add(message); 
-         
+                
          //create a file and read that file into a scanner object 
          File file = new File("MazeFile.txt"); 
          Scanner scan = new Scanner(file); 
@@ -97,9 +88,8 @@ public class Maze extends Application {
          
          
          //add the key listener 
-         rootFlowPane.setOnKeyPressed(new KeyHandler()); 
+         rootFlowPane.setOnKeyReleased(new KeyHandler()); 
                   
-         
          //create the scene object and set the root and size
          Scene myScene = new Scene(rootFlowPane, 525, 525); 
          //set the scene to the stage 
